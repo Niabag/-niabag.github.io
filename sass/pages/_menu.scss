@@ -1,0 +1,209 @@
+.section-menu {
+    display: flex;
+    flex-direction: column;
+    background: $gris_claire;
+    margin-top: -35px;
+    padding-top: 30px;
+    border-radius: 30px 30px 0px 0px;
+    position: relative;
+
+    &__titre-resto {
+        font-family: shrikhand;
+        margin: 0px 0px 10px 20px;
+    }
+}
+ /*Animation deffilement*/
+.section-entrees{
+    animation: deffilement 1500ms both 0ms;
+}
+
+
+.section-plats {
+    animation: deffilement 1500ms both 1500ms;
+}
+
+.section-desserts {
+    animation: deffilement 1500ms both 3500ms;
+}
+
+/*card Entrees*/
+.section-entrees_card1{
+    animation: deffilement 1500ms both 0ms;
+}
+
+.section-entrees_card2{
+    animation: deffilement 1500ms both 500ms;
+}
+.section-entrees_card3{
+    animation: deffilement 1500ms both 1000ms;
+}
+
+.section-entrees_card4{
+    animation: deffilement 3000ms both 1500ms;
+}
+
+/*card plats*/
+.section-plats_card1{
+    animation: deffilement 1500ms both 2000ms;
+}
+
+.section-plats_card2{
+    animation: deffilement 1500ms both 2500ms;
+}
+.section-plats_card3{
+    animation: deffilement 3000ms both 3000ms;
+}
+
+/*card desserts*/
+.section-desserts_card1{
+    animation: deffilement 1500ms both 4000ms;
+}
+
+.section-desserts_card2{
+    animation: deffilement 1500ms both 4500ms;
+}
+.section-desserts_card3{
+    animation: deffilement 3000ms both 5000ms;
+}
+
+
+
+/*Section card menu*/
+.section-desktop {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop-version {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+.section-menu {
+
+    &__centre-btn {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @include desktop-version {
+        display: flex;
+        align-items: center;
+        width: 2000px;
+    }
+}
+
+
+
+.section-entrees,
+.section-plats,
+.section-desserts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    @include desktop-version {
+        margin: 50px;
+    }
+
+
+    &_titre {
+        display: flex;
+        color: $gris-texte;
+        margin-top: 50px ;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    &_card1,&_card2,&_card3,&_card4 {
+        width: 350px;
+        height: 80px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: $blanc;
+        @include box-shadow;
+        cursor: pointer;
+
+        &--texte {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+
+            & h4 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin: 10px 0px 10px 20px;
+                font-weight: bold;
+                font-size: 17px;
+            }
+            
+            & p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin: 10px 0px 10px 20px;
+                font-size: 12px;
+                color: $gris-texte;
+            }
+        }
+
+        &--prix {
+            display: flex;
+            justify-content: end;
+            width: 10%;
+            font-weight: bold;
+            margin-right: 10px;
+
+            & p {
+                padding-top: 25px;
+            }
+        }
+
+        &--icon {
+            width: 0px;
+            background: $tertiaire;
+            padding: 20px 0px 20px 0px;
+            border-radius: 0px 20px 20px 0px;
+        }
+
+        .fa-check-circle {
+            display: flex;
+            justify-content: center;
+            font-size: 0px;
+            color: #fff;
+        }
+
+        &:hover {
+            @include box-shadow_active;
+
+            .section-entrees_card1--icon,
+            .section-plats_card1--icon,
+            .section-desserts_card1--icon,
+            .section-entrees_card2--icon,
+            .section-plats_card2--icon,
+            .section-desserts_card2--icon,
+            .section-entrees_card3--icon,
+            .section-plats_card3--icon,
+            .section-desserts_card3--icon,
+            .section-entrees_card4--icon
+            
+             {
+                animation: checked 300ms forwards;
+            }
+
+            .fa-check-circle {
+                animation: rotation 1000ms forwards;
+                font-size: 40px;
+            }
+
+        }
+
+    }
+}

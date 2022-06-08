@@ -1,0 +1,198 @@
+/*CHhargement*/
+
+.chargement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;  
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 999;
+        animation: chargement 3000ms forwards ease;
+    }      
+    &__titre {  
+        margin-top: 700px;
+        position: absolute; 
+        z-index: 999;
+        font-size: 50px;               
+        animation:  texte-chargement 3000ms ease both;
+    }
+    &__icon {
+        position: absolute;
+        top: 55%;
+        z-index: 999;
+        font-size: 50px;        
+        animation:  gauche-droite 3000ms ease both;
+    }  
+}
+
+/*Main*/
+
+main{
+    @include desktop-version{
+        display: flex;
+        flex-direction: row;
+    } 
+}
+
+/* Partie Fonctionnement */
+.section-fonctionnement{
+    display: flex;
+    flex-direction: column;
+
+    @include desktop-version{
+        width: 320px;
+        border-right: solid 2px $gris_claire;
+    }
+
+    &__titre{
+        margin-left: 20px;
+        font-weight: bold;
+    }
+}
+
+.block-fonctionnement{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    @include desktop-version{
+        align-items: flex-start;
+        margin-left: 20px;
+        padding-right: 10px;
+        gap: 40px;
+        margin-top: 20px;
+    }
+
+    &__icon{
+        @include fonctionnement-icon;
+    }
+
+
+    &__num{
+        display: flex;
+        justify-content: center;
+        width: 20px;
+        position: absolute;
+        margin-right: 280px;
+        background: $primaire;
+        border-radius: 25px;
+        color: $blanc;
+    }
+
+    &__texte-composez{
+        margin-right: 20px;
+    }
+
+    &__texte-degustez{
+        margin-right: 15px;
+    }  
+}
+
+.block-fonctionnement__card{
+    cursor: pointer;
+    border: none;
+    @include fonctionnement-card;
+    &:hover{
+        animation: active_card 300ms forwards;
+        .block-fonctionnement__icon{
+            animation: active_icon 0ms forwards;
+        }
+    }
+}
+
+/* Partie Restaurants*/
+
+.section-restaurant{
+    width: 100%;
+    height: 1350px;
+    margin-top: 50px;
+    background: $gris_claire;
+    padding-top: 50px;
+
+    @include desktop-version{
+        margin-top: 0px;
+        padding-top: 20px;
+        background: $blanc;
+        height: auto;
+    }
+
+    &__titre{
+        margin: 0px 0px 0px 20px;
+        font-weight: bold;
+    }
+
+    &__block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        gap: 20px;
+
+        @include desktop-version{
+           flex-direction: row;
+           justify-content: center;
+           flex-wrap: wrap;
+        }
+    }
+}
+
+
+.card-restaurant{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 280px;
+    background: $blanc;
+    border-radius: 20px;
+    @include box-shadow;
+
+    @include desktop-version{
+        background: $gris_claire;
+        margin: 20px 0px 50px 10px;
+    }
+
+    &__lien{
+        text-decoration: none;
+
+        &--nouveau{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100px;
+            height: 35px;
+            background: $menthe;
+            margin: 20px 0px 0px 240px;
+            color: $menthe_texte;
+            font-weight: bold;
+            animation: nouveau 2000ms forwards infinite;
+        }
+
+        &--img{
+            width: 350px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        &--titre{
+            color: $noir;
+            font-weight: bold;
+            margin: 10px 0px 10px 15px;
+        }
+        
+        &--texte{
+            color: $gris-texte;
+            margin: 0px 0px 8px 15px;
+        }
+    }
+}
+

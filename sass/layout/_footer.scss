@@ -1,0 +1,55 @@
+.section-footer{
+    background: $footer;
+    margin-top: 10px;
+    
+
+    @include desktop-version{
+        display: flex; 
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @include tablette-version{
+        display: flex; 
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__logo{
+        font-family: shrikhand;
+        color: $blanc;
+        font-weight: normal;
+        font-size: 25px;
+        margin: 0px 0px 0px 20px;
+        padding-top: 20px;
+
+        @include desktop-version{
+            font-size: 30px;
+        }
+    }
+}
+
+.footer-ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 20px 0px 20px 20px;
+    
+
+    &__li{
+        padding-top: 10px;
+        &--a{
+            text-decoration: none;
+            color: $blanc;
+            font-size: 20px;
+        }
+
+        &--icon1{
+            @include footer-icon;
+            margin-right: 5px;
+        }
+
+        &--icon2{
+            @include footer-icon;
+        }
+    }
+}
